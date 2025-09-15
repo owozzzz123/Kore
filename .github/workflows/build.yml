@@ -52,7 +52,7 @@ jobs:
       - name: Ensure settings.gradle exists (plugin repos)
         run: |
           if [ ! -f settings.gradle ] && [ ! -f settings.gradle.kts ]; then
-            cat > settings.gradle <<'EOF'
+            cat > settings.gradle << 'SETTINGS'
 pluginManagement {
   repositories {
     gradlePluginPortal()
@@ -68,7 +68,7 @@ dependencyResolutionManagement {
   }
 }
 rootProject.name = 'lsposed_build_project'
-EOF
+SETTINGS
             echo "created settings.gradle"
           else
             echo "settings.gradle (or .kts) exists, skipping create"
@@ -107,3 +107,4 @@ EOF
             **/build/outputs/apk/**/*.apk
             **/build/outputs/aar/*.aar
             **/build/outputs/apk/*.apk
+YML
