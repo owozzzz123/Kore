@@ -1,0 +1,12 @@
+name: Test CI Runner
+on: [ push ]
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Say hi
+        run: |
+          echo "CI runner is working"
+          uname -a
